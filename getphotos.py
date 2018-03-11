@@ -137,7 +137,7 @@ def save_images(search, max_number, sort_by, file_root, sub_directory=None):
     photos = []
     for i in range(1,num_pages+1):
         if i == num_pages:
-            results = call_url(search, sort_by, i, 'flickr.photos.search', max_number)
+            results = call_url(search, sort_by, i, 'flickr.photos.search', max_number % max_results_per_page)
         else:
             results = call_url(search, sort_by, i, 'flickr.photos.search')
         photos += results['photos']['photo']
